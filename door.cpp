@@ -67,9 +67,6 @@ void printHighScore(){
 	scoresFile.close();
 
 	cout << "HIGH SCORE - " << highName << " " << highScore << endl;
-
-
-
 }
 
 int main(){
