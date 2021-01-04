@@ -33,9 +33,13 @@ int main(){
 
 	int choice, live;
   	int score = 0;
+	string name;
 
 	displayPrompt();
 	displayDoors();
+
+	cout << "Name: ";
+	cin >> name;
 
 	srand(time(NULL));
 
@@ -54,6 +58,6 @@ int main(){
 	}
 	
 	cout << "Oof, Final Score: " << score << endl;
-
+	
 	return 0;
 }
