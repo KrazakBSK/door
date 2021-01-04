@@ -1,0 +1,3 @@
+Krazak: 2
+Score: 1
+Berserker: 4

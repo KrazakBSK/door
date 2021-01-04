@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <cstdlib>
 #include <ctime>
 using namespace std;
@@ -20,13 +21,20 @@ void displayDoors(){
 	cout << "+---+   +---+" << endl;
 }
 
-bool choiceChk(int n, int m){
-	if(n == m){
+bool choiceChk(int choice, int live){
+	if(choice == live){
 		return true;
 	}	
 	else{
 	       	return false;
 	}
+}
+
+void saveScore(string name, int score){
+	ofstream scoresFile;
+	scoresFile.open("scores.txt", ios::out | ios::app);
+	scoresFile << name << ": " << score << endl;
+	scoresFile.close();
 }
 
 int main(){
@@ -58,6 +66,6 @@ int main(){
 	}
 	
 	cout << "Oof, Final Score: " << score << endl;
-	
+	saveScore(name, score);
 	return 0;
 }
