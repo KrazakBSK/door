@@ -15,7 +15,7 @@ void displayPrompt(){
 void displayDoors(){
 	cout << "+---+   +---+" << endl;
 	cout << "| | |   | | |" << endl;
-	cout << "|-1-|   |-2 |" << endl;
+	cout << "|-1-|   |-2-|" << endl;
 	cout << "| | |   | | |" << endl;
 	cout << "+---+   +---+" << endl;
 }
