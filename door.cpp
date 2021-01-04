@@ -4,8 +4,6 @@
 #include <ctime>
 using namespace std;
 
-
-
 void displayPrompt(){
 	 cout << "Welcome to Door!" << endl;
 	 cout << "Simply choose a number associated with a door." << endl;
