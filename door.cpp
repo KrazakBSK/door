@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
@@ -13,9 +14,9 @@ void displayPrompt(){
 
 void displayDoors(){
 	cout << "+---+   +---+" << endl;
-	cout << "|   |   |   |" << endl;
-	cout << "| 1 |   | 2 |" << endl;
-	cout << "|   |   |   |" << endl;
+	cout << "| | |   | | |" << endl;
+	cout << "|-1-|   |-2 |" << endl;
+	cout << "| | |   | | |" << endl;
 	cout << "+---+   +---+" << endl;
 }
 
@@ -31,8 +32,40 @@ bool choiceChk(int choice, int live){
 void saveScore(string name, int score){
 	ofstream scoresFile;
 	scoresFile.open("scores.txt", ios::out | ios::app);
+	if(!scoresFile){
+		cout << "Unable to open file scores.txt" << endl;
+		cout << "Failed to save score" << endl;
+		return;
+	}
 	scoresFile << name << ": " << score << endl;
 	scoresFile.close();
+}
+
+void printHighScore(){
+	string highName, tempName, temp;
+	int tempScore = 0;
+	int highScore = 0;
+
+	ifstream scoresFile;
+	scoresFile.open("scores.txt", ios::in);
+
+	while(getline(scoresFile, temp)){
+		stringstream ss(temp);
+		ss >> tempName;
+		ss >> tempScore;
+
+		if(tempScore >= highScore){
+			highScore = tempScore;
+			highName = tempName;
+		}
+	}
+	
+	scoresFile.close();
+
+	cout << "HIGH SCORE - " << highName << " " << highScore << endl;
+
+
+
 }
 
 int main(){
@@ -65,5 +98,6 @@ int main(){
 	
 	cout << "Oof, Final Score: " << score << endl;
 	saveScore(name, score);
+	printHighScore();
 	return 0;
 }
