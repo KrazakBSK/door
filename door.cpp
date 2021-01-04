@@ -1,3 +1,7 @@
+//Door game written in C++
+//Author: Trung Lam
+//Date: January 4th, 2020
+
 #include <iostream>
 #include <sstream>
 #include <fstream>
